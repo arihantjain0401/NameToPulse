@@ -1,0 +1,9 @@
+Binary
+A-Z(1-26)
+A-z(-12-13)
+Morse
+Huffman (almost same as morse)
+PPM (Partial Matching): one of dictionary methods
+no use of making own dictionary as all letters not present
+LZM
+KMP (basis of PPM and even LZM)
