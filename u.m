@@ -14,7 +14,14 @@ for i=1:length(bit_str_cell)
     
 end
 
+polar_rz(1)=0;
+polar_rz(2)=0;
+polar_rz(3)=0;
+
 for i=1:length(bit_str)
+    
+    polar_rz(1)= polar_rz(3);
+    
 if bit_str(i)=='0';
     polar_rz(4)= 0;
     polar_rz(3)= -1;
@@ -24,15 +31,22 @@ else bit_str(i)=='1';
     polar_rz(3)= -2;
     polar_rz(2)=  2;
 end
-polar_rz(1)=0;
 
-t = [i-1 i-(2/3) i-(1/3) i];
+
+t_end = [i-1 i-(0.5) i i+0.5];
+t = [i-1 i-(0.5) i];
 
 hold all
-plot(t,polar_rz);
+if (i==length(bit_str));
+    plot(t_end,polar_rz(1:4));
+    xlim([0 t_end(4)]);
+else
+    plot(t,polar_rz(1:3));
+    xlim([0 t(3)]);
+end
+
 % plot(t,polar_rz,'black');
-xlim([0 t(3)]);
-ylim([-2 2]);
+ylim([-3 3]);
 
 pause(0.1)
 end
